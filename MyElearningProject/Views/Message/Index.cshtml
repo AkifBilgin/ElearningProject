@@ -1,0 +1,46 @@
+﻿@model List<MyElearningProject.DAL.Entities.Message>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block">
+                Nachrichten
+                <br />
+                <table class="table table-bordered">
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Betreff</th>
+                        <th>Nachricht</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                <tr>
+
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Subject</td>
+                    <td>@item.MessageContent</td>
+
+
+                    @if (item.IsReaden == true)
+                    {
+                        <td><a href="/Message/ChangeStatus/@item.MessageID" style="pointer-events: none; cursor:default;"  class="btn btn-outline-success">Gelesen</a></td>
+                    }
+                    else
+                    {
+                        <td><a href="/Message/ChangeStatus/@item.MessageID" class="btn btn-outline-warning">Neu</a></td>
+                    }
+
+                </tr>
+                    }
+                </table>
+        </div>
+    </div>
+</div>
+</div>

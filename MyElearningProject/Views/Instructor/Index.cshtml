@@ -1,0 +1,39 @@
+﻿@model List<MyElearningProject.DAL.Entities.Instructor>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block">
+                Donzenten
+                <br />
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Foto</th>
+                        <th>Name</th>
+                        <th>Löschen</th>
+                        <th>Update</th>
+                        <th>Kurrse</th>
+                        <th>Details</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td><img src="@item.ImageUrl" style="height:50px; width:60px; border-radius:50% " /></td>
+                    <td>@item.Name @item.Surname</td>
+                    <td><a href="/Instructor/DeleteInstructor/@item.InstructorID" class="btn btn-outline-danger">Löschen</a></td>
+                    <td><a href="/Instructor/UpdateInstructor/@item.InstructorID" class="btn btn-outline-success">Update</a></td>
+                    <td><a href="/Instructor/UpdateInstructor/@item.InstructorID" class="btn btn-outline-warning">Kurse</a></td>
+                    <td><a href="/Instructor/UpdateInstructor/@item.InstructorID" class="btn btn-outline-info">Details</a></td>
+                </tr>
+                    }
+                </table>
+                <a href="/Instructor/AddInstructor" class="btn btn-outline-primary">Neuer Dozent</a>
+            </div>
+        </div>
+    </div>
+</div>

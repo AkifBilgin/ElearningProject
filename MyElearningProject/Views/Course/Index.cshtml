@@ -1,0 +1,36 @@
+﻿@model List<MyElearningProject.DAL.Entities.Course>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block">
+                Kurse
+                <br />
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Kurs Bezeichnung</th>
+                        <th>Kategorie</th>
+                        <th>Dozent</th>
+                        <th>Löschen</th>
+                        <th>Update</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Category.CategoryName</td>
+                            <td>@item.Instructor.Name @item.Instructor.Surname</td>
+                            <td><a href="/Course/DeleteCourse/@item.CourseID" class="btn btn-outline-danger">Löschen</a></td>
+                            <td><a href="/Course/UpdateCourse/@item.CourseID" class="btn btn-outline-success">Update</a></td>
+                        </tr>
+                    }
+                </table>
+                <a href="/Course/CreateCourse" class="btn btn-outline-primary">neuer Kurs</a>
+            </div>
+        </div>
+    </div>
+</div>

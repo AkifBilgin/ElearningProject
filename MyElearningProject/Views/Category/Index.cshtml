@@ -1,0 +1,43 @@
+﻿@model List<MyElearningProject.DAL.Entities.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block">
+                Kategorien
+                <br />
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Kategorie</th>
+                        <th>Löschen</th>
+                        <th>Update</th>
+                        <th>Startseite</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>@item.CategoryName</td>
+                    <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger">Löschen</a></td>
+                    <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-outline-success">Update</a></td>
+                    @if (item.Status == true)
+                    {
+                        <td><a href = "/Category/ChangeStatus/@item.CategoryID" class="btn btn-outline-info">Online</a></td>
+                    }
+                    else
+                    {
+                        <td><a href="/Category/ChangeStatus/@item.CategoryID" class="btn btn-outline-warning">Offline</a></td>
+                    }
+
+                </tr>
+                    }
+                </table>
+                <a href="/Category/AddCategory" class="btn btn-outline-primary">Neue Kategorie</a>
+            </div>
+        </div>
+    </div>
+</div>
+

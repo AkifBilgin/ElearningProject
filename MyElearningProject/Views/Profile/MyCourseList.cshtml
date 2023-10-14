@@ -1,0 +1,91 @@
+﻿@model List<MyElearningProject.DAL.Entities.Process>
+@{
+    Layout = null;
+}
+@Html.Action("HeadPartial", "ELearningHome")
+
+@Html.Action("SpinnerPartial", "ELearningHome")
+
+@Html.Action("NavbarPartial", "ELearningHome")
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Kurse</h6>
+            <h1 class="mb-5">Meine Kurse</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            @foreach (var item in Model)
+            {
+              
+
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <a href="/Profile/CourseVideo/@item.Course.CourseID">
+                                <img class="img-fluid" src="@item.Course.ImageUrl" alt="" style="width:370px; height:200px;">
+                                <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <h5 class="mb-0"><a href="/Profile/Review">Bewertung abgeben</a></h5>
+                        <h5 class="mb-0"><a href="/Profile/Comments">Kommentar abgeben</a></h5>
+                        <h5 class="mb-4">@item.Course.Title</h5>
+
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>@item.Course.Instructor.Name @item.Course.Instructor.Surname</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>@item.Course.Duration Stunden</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-shopping-basket text-primary me-2"></i>@item.Course.Category.CategoryName</small>
+                    </div>
+                </div>
+
+
+
+                
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@Html.Action("FooterPartial", "ELearningHome")
+
+<!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/Templates/elearning/lib/wow/wow.min.js"></script>
+<script src="~/Templates/elearning/lib/easing/easing.min.js"></script>
+<script src="~/Templates/elearning/lib/waypoints/waypoints.min.js"></script>
+<script src="~/Templates/elearning/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    const newsletter = document.querySelector('#news');
+    newsletter.addEventListener('click', function () {
+        Swal.fire({
+            title: 'Newsletter-Anmeldung',
+            text: 'Sie wurden erfolgreich für den Newsletter angemeldet.',
+            icon: 'success',
+            confirmButtonText: 'Schließen!',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            background: '#f7f7f7',
+        });
+    })
+
+</script>
+<!-- Template Javascript -->
+<script src="~/Templates/elearning/js/main.js"></script>
+
+
+

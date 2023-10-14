@@ -1,0 +1,14 @@
+﻿@model MyElearningProject.DAL.Entities.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Yeni Kategori Ekleme Sayfasi</h2>
+
+<form method="post">
+    <label>Kategori</label>
+    @Html.TextBoxFor(x=>x.CategoryName, new {@class="form-control"})
+    <br /><br />
+    <button class="btn btn-primary">Speichern</button>
+</form>

@@ -1,0 +1,97 @@
+﻿@model MyElearningProject.DAL.Entities.Student
+@{
+    Layout = null;
+}
+
+@Html.Action("HeadPartial", "ELearningHome")
+
+@Html.Action("SpinnerPartial", "ELearningHome")
+
+@Html.Action("NavbarPartial", "ELearningHome")
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Hallo, @ViewBag.name</h6>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Linke Spalte für die Navigation -->
+            <div class="col-md-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Mein Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Profile/MyCourseList">Meine Kurse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ELearningHome/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Abmelden</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Rechte Spalte für den Inhalt -->
+            <div class="col-md-10">
+
+              
+                    <div class="course-item bg-light">
+                        <form method="post">
+                            @Html.HiddenFor(x=>x.StudentID)
+                            <label>Name</label>
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @type = "text" })
+                            <br />
+                           <label>Nachname</label>
+                            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @type = "text" })
+                            <br />
+                        <label>Email</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @type = "email" })
+                            <br />
+                        <label>Passwort</label>
+                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @type="password"})
+                            <br />
+                            <button class="btn btn-outline-primary">Daten ändern</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@Html.Action("FooterPartial", "ELearningHome")
+
+<!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/Templates/elearning/lib/wow/wow.min.js"></script>
+<script src="~/Templates/elearning/lib/easing/easing.min.js"></script>
+<script src="~/Templates/elearning/lib/waypoints/waypoints.min.js"></script>
+<script src="~/Templates/elearning/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    const newsletter = document.querySelector('#news');
+    newsletter.addEventListener('click', function () {
+        Swal.fire({
+            title: 'Newsletter-Anmeldung',
+            text: 'Sie wurden erfolgreich für den Newsletter angemeldet.',
+            icon: 'success',
+            confirmButtonText: 'Schließen!',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            background: '#f7f7f7',
+        });
+    })
+
+</script>
+<!-- Template Javascript -->
+<script src="~/Templates/elearning/js/main.js"></script>

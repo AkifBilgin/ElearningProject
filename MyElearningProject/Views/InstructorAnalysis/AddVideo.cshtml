@@ -1,0 +1,15 @@
+﻿@model MyElearningProject.DAL.Entities.CourseVideo
+<div class="tab-pane" id="videos" role="tabpanel">
+    <div class="card-block">
+        <form method="post" action="/InstructorAnalysis/AddVideo">
+
+            <label>Kurs</label>
+            @Html.DropDownListFor(x => x.CourseID, (List<SelectListItem>)ViewBag.items, new { @class = "form-control" })
+            <br /><br />
+            <label>Url</label>
+            @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+            <br /><br />
+            <button class="btn btn-primary">Speichern</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿@model MyElearningProject.DAL.Entities.Comment
+@{
+    Layout = null;
+}
+
+
+
+@Html.Action("HeadPartial", "ELearningHome")
+
+@Html.Action("SpinnerPartial", "ELearningHome")
+
+@Html.Action("NavbarPartial", "ELearningHome")
+
+
+
+
+<div class="container-xxl py-5">
+    <h6 class="section-title bg-white text-center text-primary px-3">Bewertung abgeben</h6>
+
+
+    <form method="post" action="/Profile/Comments">
+
+        @Html.DropDownListFor(x => x.CourseID, (List<SelectListItem>)ViewBag.course, new { @class = "form-control", @style = "background-color:#F1DCD4; font-weight:bold" })
+        <br /><br />
+
+        @Html.TextAreaFor(x => x.CommentText, new { @rows = "4", @cols = "50" })
+
+        <button id="submitComment" class="btn btn-outline-primary" type="submit">Kommentar abgeben</button>
+    </form>
+
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+@Html.Action("FooterPartial", "ELearningHome")
+<!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/Templates/elearning/lib/wow/wow.min.js"></script>
+<script src="~/Templates/elearning/lib/easing/easing.min.js"></script>
+<script src="~/Templates/elearning/lib/waypoints/waypoints.min.js"></script>
+<script src="~/Templates/elearning/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    const newsletter = document.querySelector('#news');
+    newsletter.addEventListener('click', function () {
+        Swal.fire({
+            title: 'Newsletter-Anmeldung',
+            text: 'Sie wurden erfolgreich für den Newsletter angemeldet.',
+            icon: 'success',
+            confirmButtonText: 'Schließen!',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            background: '#f7f7f7',
+        });
+    })
+
+</script>
+
+<script>
+    const review = document.querySelector('#submitComment');
+    review.addEventListener('click', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Kommentar abgegeben',
+            text: 'Ihr Kommentar wurde erfolgreich abgegeben',
+            icon: 'success',
+            confirmButtonText: 'Schließen!',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            background: '#f7f7f7',
+        }).then(function () {
+            e.target.closest('form').submit();
+        });
+    })
+
+</script>
+<!-- Template Javascript -->
+<script src="~/Templates/elearning/js/main.js"></script>
+
+

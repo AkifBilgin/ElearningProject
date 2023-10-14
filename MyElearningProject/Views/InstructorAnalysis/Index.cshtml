@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <!-- Column -->
+    @Html.Action("InstructorPanelPartial", "InstructorAnalysis")
+    <div class="col-lg-8 col-xlg-9 col-md-7">
+        <div class="card">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs profile-tab" role="tablist">
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Kommentare</a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Über mich</a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Kurse</a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#videos" role="tab">Video hinzufügen</a> </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                @Html.Action("CommentPartial", "InstructorAnalysis")
+                <!--second tab-->
+                @Html.Action("InstructorDescription", "InstructorAnalysis")
+                @Html.Action("CourseListByInstructor", "InstructorAnalysis")
+                @Html.Action("AddVideo", "InstructorAnalysis")
+            </div>
+        </div>
+    </div>
+</div>
+
+
